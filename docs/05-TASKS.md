@@ -212,7 +212,7 @@ VTCC/
 ## TASK-007：配置页面路由和 TabBar
 
 * Priority：P0
-* Status：Todo
+* Status：Done
 * Dependencies：TASK-006
 * Estimate：3 小时
 * Commit：`feat: add page routes and tab bar`
