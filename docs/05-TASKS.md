@@ -60,7 +60,7 @@
 ## TASK-002：建立基础文档结构
 
 * Priority：P0
-* Status：Doing
+* Status：Done
 * Dependencies：TASK-001
 * Estimate：2 小时
 * Commit：`docs: add project planning documents`
@@ -101,7 +101,7 @@ VTCC/
 ## TASK-003：制定 UI 视觉规范
 
 * Priority：P0
-* Status：Todo
+* Status：Done
 * Dependencies：TASK-002
 * Estimate：3 小时
 * Commit：`docs: add UI design guidelines`
@@ -772,10 +772,11 @@ VTCC/
 
 # 当前任务
 
-* Current Phase：Phase 0
-* Current Task：TASK-002
-* Status：Doing
-* Next Task：TASK-003 制定 UI 视觉规范
+
+- Current Phase：Phase 1
+- Current Task：TASK-004
+- Status：Todo
+- Next Task：设计首页
 
 ---
 
