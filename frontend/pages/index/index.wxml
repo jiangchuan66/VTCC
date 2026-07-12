@@ -1,1 +1,97 @@
-<view class="page-placeholder">首页</view>
+<view class="page" style="padding-top: {{statusBarHeight}}px;">
+  <view class="header">
+    <view class="brand-row">
+      <text class="brand">VTCC</text>
+      <button class="icon-button more-icon" aria-label="更多操作" bindtap="onMoreTap">
+        <text>•••</text>
+      </button>
+    </view>
+
+    <view class="date-row">
+      <view>
+        <view class="date-line">
+          <text>{{home.dateText}}</text>
+          <text class="weekday">{{home.weekday}}</text>
+        </view>
+        <text class="tagline">{{home.tagline}}</text>
+      </view>
+      <button class="icon-button calendar-icon" aria-label="选择日期" bindtap="onCalendarTap">
+        <view class="calendar-icon__body"></view>
+      </button>
+    </view>
+
+    <view class="search {{showSearchFeedback ? 'search--focused' : ''}}">
+      <view class="search__icon"></view>
+      <input
+        class="search__input"
+        type="text"
+        value="{{searchValue}}"
+        placeholder="搜索赛事、战队或选手"
+        placeholder-class="search__placeholder"
+        confirm-type="search"
+        bindfocus="onSearchFocus"
+        bindinput="onSearchInput"
+        bindblur="onSearchBlur"
+      />
+    </view>
+    <view wx:if="{{showSearchFeedback}}" class="search-feedback">{{searchFeedback}}</view>
+  </view>
+
+  <view>
+    <view class="section">
+      <section-header title="今日比赛" bind:action="onViewAll"></section-header>
+      <view wx:if="{{todayState === 'normal'}}" class="matches">
+        <match-card
+          wx:for="{{home.todayMatches}}"
+          wx:key="id"
+          match="{{item}}"
+          bind:select="onMatchSelect"
+        ></match-card>
+      </view>
+      <page-state
+        wx:else
+        state="{{todayState}}"
+        bind:action="onStateAction"
+      ></page-state>
+    </view>
+
+    <view class="section">
+      <section-header title="热门赛事" bind:action="onViewAll"></section-header>
+      <scroll-view class="events" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="events__track">
+          <tournament-card
+            wx:for="{{home.popularTournaments}}"
+            wx:key="id"
+            tournament="{{item}}"
+            bind:select="onTournamentSelect"
+          ></tournament-card>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="section" id="upcoming-schedule">
+      <section-header title="近期赛程" bind:action="onViewAll"></section-header>
+      <view class="day-label">{{home.upcomingDate}}</view>
+      <view class="schedule-list">
+        <view
+          class="schedule-row"
+          wx:for="{{home.upcomingMatches}}"
+          wx:key="id"
+          hover-class="schedule-row--pressed"
+          bindtap="onMatchSelect"
+        >
+          <view class="schedule-meta">{{item.tournament}} · {{item.time}}</view>
+          <view class="schedule-pair">
+            <text>{{item.homeTeam.name}}</text>
+            <view class="mini-logo mini-logo--{{item.homeTeam.logoTone}}">{{item.homeTeam.shortName}}</view>
+            <text class="versus">VS</text>
+            <view class="mini-logo mini-logo--{{item.awayTeam.logoTone}}">{{item.awayTeam.shortName}}</view>
+            <text>{{item.awayTeam.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="toast {{toastVisible ? 'toast--visible' : ''}}">{{toastText}}</view>
+</view>

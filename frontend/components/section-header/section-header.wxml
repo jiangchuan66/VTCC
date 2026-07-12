@@ -1,0 +1,4 @@
+<view class="section-header">
+  <text class="section-header__title">{{title}}</text>
+  <button class="section-header__action" bindtap="onAction">{{actionText}}</button>
+</view>

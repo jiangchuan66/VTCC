@@ -1,0 +1,24 @@
+<view class="state-box">
+  <block wx:if="{{state === 'loading'}}">
+    <view class="skeleton">
+      <view class="skeleton__block skeleton__block--short"></view>
+      <view class="skeleton__block skeleton__block--card"></view>
+      <view class="skeleton__block skeleton__block--card"></view>
+    </view>
+    <text class="state-box__description">正在加载赛事数据</text>
+  </block>
+
+  <block wx:elif="{{state === 'empty'}}">
+    <view class="state-box__icon">▣</view>
+    <text class="state-box__title">今天暂无比赛</text>
+    <text class="state-box__description">可以先看看明天的近期赛程</text>
+    <button class="state-box__action" bindtap="onAction">查看赛程</button>
+  </block>
+
+  <block wx:else>
+    <view class="state-box__icon">!</view>
+    <text class="state-box__title">加载失败</text>
+    <text class="state-box__description">网络似乎开了小差，请稍后重试</text>
+    <button class="state-box__action" bindtap="onAction">重试</button>
+  </block>
+</view>

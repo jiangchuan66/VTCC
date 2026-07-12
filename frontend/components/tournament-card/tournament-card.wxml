@@ -1,0 +1,5 @@
+<view class="tournament-card" hover-class="tournament-card--pressed" bindtap="onTap">
+  <view class="tournament-card__mark">{{tournament.mark}}</view>
+  <text class="tournament-card__name">{{tournament.name}}</text>
+  <text class="tournament-card__status">{{tournament.status}}</text>
+</view>

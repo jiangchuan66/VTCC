@@ -1,0 +1,43 @@
+.tournament-card {
+  width: 216rpx;
+  min-height: 220rpx;
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  border: 2rpx solid #e5e6eb;
+  border-radius: 24rpx;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.tournament-card--pressed {
+  background: #f7f8fa;
+}
+
+.tournament-card__mark {
+  width: 68rpx;
+  height: 68rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18rpx;
+  background: #f7f8fa;
+  color: #1d2129;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.tournament-card__name {
+  color: #1d2129;
+  font-size: 26rpx;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+.tournament-card__status {
+  margin-top: 10rpx;
+  color: #ff4655;
+  font-size: 22rpx;
+}

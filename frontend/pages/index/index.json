@@ -1,3 +1,9 @@
 {
-  "navigationBarTitleText": "首页"
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "match-card": "/components/match-card/match-card",
+    "page-state": "/components/page-state/page-state",
+    "section-header": "/components/section-header/section-header",
+    "tournament-card": "/components/tournament-card/tournament-card"
+  }
 }

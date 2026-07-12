@@ -1,0 +1,27 @@
+<view class="match-card" hover-class="match-card--pressed" hover-stay-time="150" bindtap="onTap">
+  <view class="match-card__meta">
+    <text class="match-card__league">{{match.tournament}}</text>
+    <text>{{match.time}}</text>
+    <text>{{match.format}}</text>
+    <text class="match-card__status match-card__status--{{match.statusType}}">{{match.status}}</text>
+  </view>
+
+  <view class="match-card__teams">
+    <view class="team">
+      <view class="team__logo team__logo--{{match.homeTeam.logoTone}}">{{match.homeTeam.shortName}}</view>
+      <text class="team__name">{{match.homeTeam.name}}</text>
+    </view>
+
+    <view wx:if="{{match.homeScore !== null}}" class="score" aria-label="比分 {{match.homeScore}} 比 {{match.awayScore}}">
+      <text class="score__number {{match.leadingSide === 'home' ? 'score__number--leading' : ''}}">{{match.homeScore}}</text>
+      <text class="score__separator">:</text>
+      <text class="score__number {{match.leadingSide === 'away' ? 'score__number--leading' : ''}}">{{match.awayScore}}</text>
+    </view>
+    <view wx:else class="score score--versus">VS</view>
+
+    <view class="team team--away">
+      <view class="team__logo team__logo--{{match.awayTeam.logoTone}}">{{match.awayTeam.shortName}}</view>
+      <text class="team__name">{{match.awayTeam.name}}</text>
+    </view>
+  </view>
+</view>
